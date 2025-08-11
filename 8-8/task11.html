@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia Embedding Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        .container {
+            background: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Multimedia Embedding: iframe, embed, object</h1>
+
+    <!-- 1. iframe -->
+    <div class="container">
+        <h2> iframe (Webpage inside page)</h2>
+        <iframe 
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen> 
+        </iframe>
+    </div>
+
+    <!-- 2. embed -->
+    <div class="container">
+        <h2> embed (Direct file embedding)</h2>
+        <embed src="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" 
+               type="application/pdf" 
+               width="500" 
+               height="400">
+    </div>
+
+    <!-- 3. object -->
+    <div class="container">
+        <h2> object (With fallback content)</h2>
+        <object data="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" 
+                type="application/pdf" 
+                width="600" 
+                height="400">
+            <p>Your browser doesn't support PDF display. 
+               <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf">
+               Download PDF here</a>.
+            </p>
+        </object>
+    </div>
+
+</body>
+</html>
