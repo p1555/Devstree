@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete CSS Demo</title>
+
+<!-- External CSS example>
+<link rel="stylesheet" href="styles.css">
+
+<!-- Google Fonts Import -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background-color: #f5f5f5;
+}
+
+.box {
+  border: 4px solid #333;
+  padding: 15px;
+  margin: 20px;
+}
+
+
+#special {
+  background-color: rgba(255, 0, 0, 0.1) !important; /* !important rule */
+}
+
+
+h1, h2, p {
+  text-align: center;
+}
+
+/* Nesting with descendant combinator */
+.container p {
+  color: #555;
+}
+
+/* Child combinator */
+.container > h2 {
+  color: hsl(200, 70%, 40%);
+}
+
+/* Adjacent sibling combinator */
+h2 + p {
+  font-style: italic;
+}
+
+/* General sibling combinator */
+h2 ~ p {
+  font-size: 14px;
+}
+
+/* Attribute selector */
+input[type="text"] {
+  border: 2px solid blue;
+  padding: 5px;
+}
+
+/* Pseudo-classes */
+a:hover {
+  color: red;
+}
+input:focus {
+  outline: 2px solid orange;
+}
+ul li:nth-child(2) {
+  color: green;
+}
+
+/* Pseudo-elements */
+p::before {
+  content: "★ ";
+  color: gold;
+}
+p::after {
+  content: " ✔";
+  color: green;
+}
+
+/* Text formatting */
+.text-demo {
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: underline;
+  text-transform: uppercase;
+  line-height: 1.5;
+  letter-spacing: 2px;
+}
+
+/* Backgrounds */
+.bg-demo {
+  background-color: #ff5733; 
+  background-image: linear-gradient(to right, #ff5733, rgb(255, 200, 100)), url("https://via.placeholder.com/150");
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+  padding: 20px;
+}
+
+/* Box sizing */
+.content-box {
+  box-sizing: content-box;
+  width: 200px;
+  height: 100px;
+  border: 5px solid blue;
+  padding: 20px;
+  margin: 10px;
+  background: lightblue;
+}
+
+.border-box {
+  box-sizing: border-box;
+  width: 200px;
+  height: 100px;
+  border: 5px solid green;
+  padding: 20px;
+  margin: 10px;
+  background: lightgreen;
+}
+
+/* Outline vs border */
+.outline-demo {
+  border: 3px solid purple;
+  outline: 3px dashed red;
+  padding: 10px;
+}
+</style>
+</head>
+<body>
+
+<h1 style="color: darkblue;">CSS Full Demonstration</h1>
+
+<div class="container">
+  <h2>Selectors & Combinators</h2>
+  <p>This is a paragraph inside .container</p>
+  <p>Another paragraph after h2 (adjacent & general sibling demo)</p>
+</div>
+
+<div class="box" id="special">
+  <p class="text-demo">Text Formatting Example</p>
+</div>
+
+<div class="bg-demo">
+  Background demo with gradient + image
+</div>
+
+<h2>Form & Attribute Selectors</h2>
+<input type="text" placeholder="Type something...">
+<a href="#">Hover over me</a>
+
+<h2>Pseudo-class nth-child()</h2>
+<ul>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ul>
+
+<h2>Box Sizing</h2>
+<div class="content-box">Content-box</div>
+<div class="border-box">Border-box</div>
+
+<h2>Outline vs Border</h2>
+<div class="outline-demo">
+  This box has both border and outline
+</div>
+
+</body>
+</html>
