@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>APIs</title>
+</head>
+<body>
+
+  <h1>APIs Demo </h1>
+
+  <section>
+    <h2>Geolocation </h2>
+    <p><strong>Note:</strong> Getting the user's device location. Use this form to enter coordinates manually or click the Maps link to find coordinates in a new tab.</p>
+
+    <form action="/submit-location" method="post">
+      <label for="lat">Latitude:</label>
+      <input type="text" id="lat" name="latitude" placeholder="e.g. 21.1702"><br><br>
+
+      <label for="lon">Longitude:</label>
+      <input type="text" id="lon" name="longitude" placeholder="e.g. 72.8311"><br><br>
+
+      <input type="submit" value="Submit Coordinates">
+    </form>
+
+    <p>
+      Find your location on a map:
+      <a href="https://www.google.com/maps" target="_blank" rel="noopener">Open Google Maps</a>
+    </p>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>Drag & Drop </h2>
+    <p>Drag & drop interactions require . Use this file upload form instead:</p>
+
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <label for="files">Choose files to upload:</label>
+      <input type="file" id="files" name="files" multiple><br><br>
+      <input type="submit" value="Upload Files">
+    </form>
+
+    <p>If you want a drag-and-drop UI, it must be implemented with client-side or with specialized server-side widgets.</p>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>Web Storage </h2>
+    <p>localStorage/sessionStorage store data on the server via form submission or let the server set cookies.</p>
+
+    <form action="/save-preference" method="post">
+      <label for="pref">Preferred theme (server-saved):</label>
+      <select id="pref" name="theme">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+      <input type="submit" value="Save Preference">
+    </form>
+
+    <p>Server will store this in a session/database or set a cookie.</p>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>Canvas (Static SVG Alternative)</h2>
+    <p> Below is a static SVG illustration you can include:</p>
+
+    <!-- Simple static SVG (works without JS) -->
+    <svg width="600" height="200" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" aria-label="Static sample drawing">
+      <!-- background -->
+      <rect x="0" y="0" width="600" height="200" fill="#f3f3f3" />
+      <!-- shapes -->
+      <circle cx="100" cy="100" r="50" stroke="black" stroke-width="2" fill="#ffcc00" />
+      <rect x="200" y="50" width="120" height="80" stroke="black" stroke-width="2" fill="#66ccff" />
+      <line x1="350" y1="150" x2="550" y2="50" stroke="black" stroke-width="3" />
+      <text x="20" y="20" font-size="16">Static SVG drawing (no JS)</text>
+    </svg>
+
+   
+  </section>
+
+  <hr>
+
+ 
+    <h2>Audio & Video </h2>
+
+    <h3>Audio</h3>
+    <audio controls>
+      <source src="https://interactive-examples.mdn.mozilla.net/media/examples/t-rex-roar.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <h3>Video</h3>
+    <video width="480" controls>
+      <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm">
+      Your browser does not support the video tag.
+    </video>
+
+    <p>These elements allow playback controls and basic features without JavaScript. Advanced control (seek buttons, programmatic control) requires JS.</p>
+  </section>
+
+  <hr>
+
+  
+  <section>
+    <h2>Summary & Server-side Alternatives</h2>
+    <ul>
+      <li><strong>Geolocation:</strong> Use forms to let users paste coordinates, or obtain approximate location server-side from IP (low accuracy).</li>
+      <li><strong>Drag & Drop:</strong> Use file upload forms or server-side widgets.</li>
+      <li><strong>Web Storage:</strong> Persist on server via sessions/database or set cookies from server responses.</li>
+      <li><strong>Canvas:</strong> Serve pre-rendered images or SVGs; accept image uploads from users.</li>
+      <li><strong>Audio/Video:</strong> Works natively with <code>&lt;audio&gt;</code> and <code>&lt;video&gt;</code> tags.</li>
+    </ul>
+  </section>
+
+</body>
+</html>
