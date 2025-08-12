@@ -1,0 +1,34 @@
+body{
+    text-align: center;
+}
+div{
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+    border: 2px solid black;
+}
+#container{
+    display: flex;
+    width: 800px;
+    height: 200px;
+    flex-direction: row;
+    /* flex-wrap: wrap-reverse; */
+    justify-content: space-evenly;
+    flex-wrap: wrap;  
+    flex-direction: 1;
+}
+item1{
+    background-color: aqua;
+}
+item2{
+    background-color: pink;
+}
+item3{
+    background-color: lightgreen;
+}
+item4{
+    background-color: peru;
+}
+item5{
+    background-color: brown;
+}
