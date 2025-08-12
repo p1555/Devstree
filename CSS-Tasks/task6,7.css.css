@@ -1,0 +1,125 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+div {
+  border: 2px solid;
+  margin-bottom: 10px;
+}
+
+/* --- Position Examples --- */
+.box1 {
+  height: 100px; width: 100px;
+  background-color: blue;
+  position: static;
+}
+
+.box2 {
+  height: 100px; width: 100px;
+  position: relative;
+  background-color: lightyellow;
+  top: 20px;
+  left: 10px;
+  z-index: 1; 
+}
+
+.box3 {
+  height: 100px; width: 100px;
+  background-color: red;
+  position: absolute;
+  top: 0;
+  left: 20px;
+}
+
+.box4 {
+  height: 100px; width: 100px;
+  background-color: green;
+  position: fixed;
+  top: 50px;
+  z-index: -3;
+}
+
+/* --- Display Examples --- */
+.block {
+  display: block;
+  background: lightblue;
+  padding: 10px;
+}
+
+.inline {
+  display: inline;
+  background: lightgreen;
+  padding: 5px;
+}
+
+.inline-block {
+  display: inline-block;
+  width: 120px;
+  height: 50px;
+  background: lightcoral;
+  text-align: center;
+  line-height: 50px;
+}
+
+.none {
+  display: none;
+}
+
+/* --- Flex Example --- */
+.flex-container {
+  display: flex;
+  gap: 10px;
+  background: #eee;
+  padding: 10px;
+}
+
+.flex-item {
+  background: orange;
+  padding: 20px;
+  flex: 1;
+  text-align: center;
+}
+
+/* --- Grid Example --- */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  background: #ddd;
+  padding: 5px;
+}
+
+.grid-item {
+  background: skyblue;
+  padding: 20px;
+  text-align: center;
+}
+
+/* --- Visibility & Opacity --- */
+.visible {
+  visibility: visible;
+  background: lightyellow;
+  padding: 10px;
+}
+
+.hidden {
+  visibility: hidden;
+  background: lightpink;
+  padding: 10px;
+}
+
+.opacity {
+  opacity: 0.5;
+  background: purple;
+  color: white;
+  padding: 10px;
+}
+
+/* --- Overflow Example --- */
+.overflow {
+  width: 150px;
+  height: 50px;
+  overflow: auto;
+  background: #fafafa;
+}
