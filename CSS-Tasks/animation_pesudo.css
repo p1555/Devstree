@@ -1,0 +1,82 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 30px;
+}
+
+/* ----- Button with pseudo-classes ----- */
+.btn {
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+
+  /* Transition properties */
+  transition-property: background-color, transform;
+  transition-duration: 0.4s;
+  transition-timing-function: ease-in-out;
+}
+
+/* Change on hover */
+.btn:hover {
+  background-color: darkblue;
+  transform: scale(1.1);
+}
+
+/* Change on click (active) */
+.btn:active {
+  background-color: red;
+}
+
+/* Change on focus (keyboard selection) */
+.btn:focus {
+  outline: 2px solid orange;
+}
+
+/* ----- nth-child example ----- */
+.my-list li:nth-child(odd) {
+  background-color: lightyellow;
+}
+.my-list li:nth-child(even) {
+  background-color: lightgreen;
+}
+
+/* ----- Box with animation + pseudo-elements ----- */
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: purple;
+  margin: 30px auto;
+  position: relative;
+
+  /* Animation properties */
+  animation-name: moveBox;
+  animation-duration: 3s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+/* Pseudo-elements with content injection */
+.box::before {
+  content: "START";
+  color: white;
+  position: absolute;
+  top: -25px;
+  left: 0;
+}
+.box::after {
+  content: "END";
+  color: white;
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+}
+
+/* Keyframes for animation */
+@keyframes moveBox {
+  0%   { transform: translateX(0); background-color: purple; }
+  50%  { transform: translateX(200px); background-color: pink; }
+  100% { transform: translateX(0); background-color: purple; }
+}
