@@ -1,0 +1,276 @@
+:root {
+  --primary-color: #b9ff66;
+  --text-color: #191a23;
+  --bg-color: #f3f3f3;
+}
+
+body {
+  background-color: var(--bg-color);
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.logo > a {
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+  color: var(--text-color);
+  font-size: x-large;
+  text-decoration: none;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 20px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  margin: auto;
+  padding: 0;
+  margin-right: 40px;
+}
+
+li {
+  list-style: none;
+  display: inline;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 20px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.req-btn {
+  background-color: var(--bg-color);
+  border: 1px dark;
+  border-radius: 14px;
+  color: var(--text-color);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 20px 35px 20px 35px;
+  margin: auto;
+}
+/* for header */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: var(--bg-color);
+    flex-direction: column;
+    align-items: flex-start;
+    width: 200px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-200%);
+    transition: transform 0.3s ease;
+  }
+
+  /* Show menu when checkbox is checked */
+  .menu-toggle:checked ~ .navbar .nav-links {
+    transform: translateY(0);
+  }
+
+  /* Button full width in mobile menu */
+  .req-btn {
+    margin-top: 10px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Even smaller sizes for very small screens */
+  .logo img {
+    height: 32px;
+  }
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+  margin-top: 0;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.hero-content {
+  flex: 1 1 45%;
+  padding: 0px 0px 140px 0px;
+}
+
+.hero-content h1 {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.8rem, 4vw, 3.5rem);
+  line-height: 1.2;
+  margin-bottom: 1em;
+}
+
+.hero-content p {
+  font-family: Space Grotesk;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0%;
+  margin-bottom: 1.5em;
+}
+
+.book-btn {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  gap: 10px;
+  border-radius: 14px;
+  padding: 20px 35px 20px 35px;
+}
+
+.hero-image {
+  flex: 1 1 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image img {
+  height: auto;
+  max-width: 100%;
+}
+.company-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 79px;
+  padding: 20px;
+}
+/* For section1 */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-content,
+  .hero-image {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+}
+/* for company logo */
+@media (max-width: 768px) {
+  .company-logo {
+    gap: 40px;
+  }
+  .company-logo img {
+    max-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .company-logo {
+    gap: 20px;
+  }
+}
+.services-section {
+  padding: 140px 0 0 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.highlighted-text {
+  background-color: var(--primary-color);
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+
+.highlighted-text h2 {
+  color: var(--text-color);
+  margin: 0;
+  font-family: Space Grotesk;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 40px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.services-section p {
+  font-size: 1em;
+  margin: 0;
+  color: var(--text-color);
+  font-family: Space Grotesk;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+@media (max-width: 768px) {
+  .services-section {
+    flex-direction: column;
+    gap: 10px;
+    padding: 40px 20px 0 20px;
+  }
+
+  .highlighted-text h2 {
+    align-items: center;
+    font-size: 24px;
+  }
+
+  .services-section p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+}
+
+.services-block{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(3,1fr);
+}
+.services-title{
+    background-color: var(--primary-color);
+    display: inline;
+    font-family: Space Grotesk;
+}
+.services-title h3{
+    color: var(--text-color);
+    font-family: Space Grotesk;
+}
