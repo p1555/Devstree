@@ -1,0 +1,227 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: antiquewhite;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.screen {
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.screen.active {
+    display: flex;
+}
+
+
+#username-input {
+    padding: 10px 15px;
+    font-size: 18px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    width: 80%;
+    max-width: 300px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+#username-input:focus {
+    outline: none;
+    border-color: #3434a9;
+}
+
+.description {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+#welcome-screen .btn {
+    font-size: 18px;
+    padding: 14px 28px;
+    
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(52, 52, 169, 0.4);
+}
+
+#welcome-screen .btn:hover {
+    background: #212529;
+    transform: scale(1.05);
+}
+.app {
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid black;
+   padding: 48px 84px 48px 103px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #333;
+}
+
+.app h1 {
+    font-weight: bold;
+    font-size: 35px;
+    color: #333;
+    border-bottom: 2px solid #333;
+    padding: 27px 13px 21px 0px;
+    margin-bottom: 20px;
+}
+.progress-container {
+    display: flex;
+    align-items: center;
+    background-color: #ddd;
+    border-radius: 999px;
+    overflow: hidden;
+    position: relative;
+    height: 15px;
+    margin-bottom: 20px;
+}
+
+#progress-bar {
+
+    height: 100%;
+    background-color: #4caf50;
+    width: 0%;
+    transition: width 0.3s ease-in-out;
+}
+
+#progress-label {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: #555;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#question-counter {
+    font-size: 23px;
+    margin-bottom: 42px;
+    color: #333;
+    text-align: center;
+
+}
+
+.quiz {
+    padding: 20px 0;
+}
+
+.quiz h2 {
+    font-size: 24px;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+#timer {
+    font-size: 18px;
+    color: #1d1d64;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+#ans-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#question {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 19px;
+    overflow-wrap: break-word;
+}
+.btn {
+    background-color: #3434a9;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover:not([disabled]) {
+    background-color: #212529;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.correct {
+    background-color: green;
+}
+
+.incorrect {
+    background-color: red;
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+#nextbtn {
+    background-color: #3434a9;
+    color: white;
+    border: none;
+    font-size: 16px;
+    padding: 10px 25px;
+    margin-top: 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: none;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+#nextbtn:hover {
+    background-color: #212529;
+    color: white;
+}
+
+@media (max-width: 768px) {
+        .app {
+        padding: 24px 16px;
+    }
+
+    .app h1 {
+        font-size: 26px;
+    }
+
+    .quiz h2 {
+        font-size: 20px;
+    }
+
+    #question {
+        font-size: 16px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+
+    #nextbtn {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    #timer {
+        font-size: 16px;
+    }
+}
