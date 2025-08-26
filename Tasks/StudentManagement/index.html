@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Student Management</title>
+  </head>
+
+  <body>
+    <main>
+      <div class="container">
+        <h1>Student Management</h1>
+
+        <div class="filter">
+          <input type="text" id="search" placeholder="Search by Name or ID" />
+
+          <select id="gradeFilter">
+            <option value>Search by Grade</option>
+            <option value="80">&gt;80</option>
+            <option value="60">&gt;60</option>
+            <option value="50">&gt;50</option>
+            <option value="33">&gt;33</option>
+          </select>
+
+          <select id="attendanceFilter">
+            <option value>Search by Attendance</option>
+            <option value="75">&lt;75%</option>
+            <option value="50">&lt;50%</option>
+            <option value="33">&lt;33%</option>
+          </select>
+
+          <button id="addBtn" class="add-stu">Add Student</button>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Gender</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Address</th>
+              <th>Grades (Avg)</th>
+              <th>Attendance (%)</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+      <div id="formPopup">
+        <form id="studentForm">
+          <input type="hidden" id="studentId" />
+
+          <label>Name:</label>
+          <input type="text" id="name" required placeholder="enter your name" /><br><br>
+
+          <label>Age:</label>
+          <input type="number" id="age" required placeholder="enter your age"/><br><br>
+
+          <label for="Gender">Gender:</label>
+          <input type="radio" name="gender" id="genderMale" value="Male" required/>
+          <label>Male</label>
+          <input type="radio" name="gender" id="genderFemale" value="Female" />
+          <label>Female</label><br><br>
+
+          <label>Email:</label>
+          <input type="email" id="email" required placeholder="eg.abc@gmail.com"/><br><br>
+
+          <label>Phone:</label>
+          <input type="text" id="phone" required pattern="\d{10}"
+            placeholder="Enter 10-digit phone number" /><br><br>
+
+          <label>City:</label>
+          <input type="text" id="city" required placeholder="enter your city"/><br><br>
+
+          <label>State:</label>
+          <input type="text" id="state" required placeholder="enter your state" /><br><br>
+
+          <div class="form-actions">
+            <button type="submit" class="save">Save</button>
+            <button type="button" id="cancelBtn" class="cancel">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <script type="module" src="sc.js"></script>
+  </body>
+
+</html>
