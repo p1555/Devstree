@@ -1,0 +1,109 @@
+* {
+    margin    : 0;
+    padding   : 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    height         : 100vh;
+}
+
+h1 {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    font-weight    : bold;
+    padding        : 10px;
+}
+
+.game-container {
+    width           : 800px;
+    padding         : 20px;
+    border-radius   : 10px;
+    box-shadow      : rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-image: linear-gradient(to right, rgb(249, 232, 108), rgb(205, 205, 225));
+}
+
+.card-container {
+    display              : grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows   : 125px 125px 125px 125px;
+    column-gap           : 0px;
+    row-gap              : 10px;
+    padding              : 15px;
+    margin               : 10px;
+    place-items          : center;
+}
+
+.card {
+    width        : 180px;
+    height       : 125px;
+    justify-items: center;
+    display      : flex;
+    align-items  : center;
+    position     : relative;
+    cursor       : pointer;
+}
+
+.card-image,
+.background-image {
+    position           : absolute;
+    height             : 100%;
+    width              : 100%;
+    border-radius      : 10px;
+    backface-visibility: hidden;
+    transition         : transform 0.6s;
+    object-fit         : cover;
+}
+
+.card-image {
+    transform: rotateY(180deg);
+}
+
+.progress {
+    display        : flex;
+    flex-direction : row;
+    justify-content: center;
+    align-items    : center;
+    gap            : 10px;
+    margin-top     : 12px;
+}
+
+.move {
+    padding      : 10px 20px;
+    border-radius: 25px;
+    border       : 1px solid black;
+}
+
+#restart {
+    align-items     : center;
+    padding         : 10px 20px;
+    background-color: #0e9d57;
+    border          : none;
+    border-radius   : 25px;
+    color           : #fff;
+    cursor          : pointer;
+}
+
+#restart:hover {
+    background-color: white;
+    border          : 1px solid #0e9d57;
+    color           : #0e9d57;
+}
+
+#showtime,
+#result {
+    padding    : 5px 10px;
+    font-weight: bold;
+}
+
+.card.flipped .card-image { 
+    transform: rotateY(0deg);
+} 
+
+.card.flipped .background-image {
+    transform: rotateY(180deg);
+}
