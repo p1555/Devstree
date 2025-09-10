@@ -12,7 +12,7 @@ const cardcontainer = document.getElementById('card-container');
 const restart = document.getElementById('restart')
 let movedisplay = document.querySelector(".move");
 let timedisplay = document.getElementById('showtime')
-let result = document.getElementById('result');
+let res = document.getElementById('result');
 let toggle = []
 let move = 0, matches = 0;
 let lockboard = false
@@ -28,7 +28,7 @@ function getcards() {
   cardcontainer.innerHTML = ''
     shuffle();
     // movedisplay.textContent = `Moves:${move}`;
-    // result.textContent = `🧮Score: 0/${images.length}`;        
+    // res.textContent = `🧮Score: 0/${images.length}`;        
     startTimer()
     cardimgs.forEach((cardData, index) => {
         const card = document.createElement('div')
@@ -73,7 +73,7 @@ function match() {
         setTimeout(()=>{
         card2.style.visibility="hidden";
         card1.style.visibility="hidden"
-        },1000);
+        },800);
         clear();
         updateScore();
          
@@ -125,14 +125,12 @@ function startTimer() {
         1000);
 }
 function updateScore() {
-    result.textContent = `🧮Score: ${matches}/${images.length}`;
+    res.textContent = `🧮Score: ${matches}/${images.length}`;
 }
-
 function clear() {
     [toggle, lockboard] = [[], false];
 }
 restart.addEventListener('click', () => {
-
     Swal.fire({
         title: "Do you want to Restart the Game?",
         showCancelButton: true,
@@ -143,16 +141,12 @@ restart.addEventListener('click', () => {
             Swal.fire("success!", "", "success");
             move = 0;
             matches = 0
-            // movedisplay.textContent = `Moves:${move}`;
-            // result.textContent = `🧮Score: 0/${images.length}`;
-            // timedisplay.textContent = `⏱ Time Left: ${min}:${sec}`;
+            movedisplay.textContent = `Moves:${move}`;
+            res.textContent = `🧮Score: 0/${images.length}`;
             clear();
-            startTimer()
+            //startTimer()
             getcards();
         }
     });
 });
-
 getcards()
-
-
