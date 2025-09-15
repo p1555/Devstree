@@ -1,0 +1,19 @@
+.kg-item {
+  color: rgb(181, 28, 181);
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.kg-span {
+  display: flex;
+  display: inline;
+  font-weight: 500;
+  color: red;
+}
+.button{
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+}
