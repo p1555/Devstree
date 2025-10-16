@@ -6,24 +6,23 @@ export const Route = createRootRoute({
   component: () => (
     <>
       <div className="p-6 max-w-3xl mx-auto">
-        <nav className="mb-6">
-          <Link to="/posts" className="text-blue-600 hover:underline">
-            Posts
-          </Link>
-        </nav>
+        <Link to="/posts" className="text-blue-600 text-2xl hover:underline">
+          Posts
+        </Link>
+
         <Outlet />
-      
+
         <TanStackDevtools
-        config={{
-          position: 'bottom-right',
-        }}
-        plugins={[
-          {
-            name: 'Tanstack Router',
-            render: <TanStackRouterDevtoolsPanel />,
-          },
-        ]}
-      />
+          config={{
+            position: 'bottom-right',
+          }}
+          plugins={[
+            {
+              name: 'Tanstack Router',
+              render: <TanStackRouterDevtoolsPanel />,
+            },
+          ]}
+        />
       </div>
     </>
   ),

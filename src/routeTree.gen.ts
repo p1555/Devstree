@@ -9,9 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as IndexRouteImport } from './routes/index'
 import { Route as PostsIndexRouteImport } from './routes/posts/index'
 import { Route as PostsIdRouteImport } from './routes/posts/$id'
 
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PostsIndexRoute = PostsIndexRouteImport.update({
   id: '/posts/',
   path: '/posts/',
@@ -24,33 +30,44 @@ const PostsIdRoute = PostsIdRouteImport.update({
 } as any)
 
 export interface FileRoutesByFullPath {
+  '/': typeof IndexRoute
   '/posts/$id': typeof PostsIdRoute
   '/posts': typeof PostsIndexRoute
 }
 export interface FileRoutesByTo {
+  '/': typeof IndexRoute
   '/posts/$id': typeof PostsIdRoute
   '/posts': typeof PostsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/': typeof IndexRoute
   '/posts/$id': typeof PostsIdRoute
   '/posts/': typeof PostsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/posts/$id' | '/posts'
+  fullPaths: '/' | '/posts/$id' | '/posts'
   fileRoutesByTo: FileRoutesByTo
-  to: '/posts/$id' | '/posts'
-  id: '__root__' | '/posts/$id' | '/posts/'
+  to: '/' | '/posts/$id' | '/posts'
+  id: '__root__' | '/' | '/posts/$id' | '/posts/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
+  IndexRoute: typeof IndexRoute
   PostsIdRoute: typeof PostsIdRoute
   PostsIndexRoute: typeof PostsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/posts/': {
       id: '/posts/'
       path: '/posts'
@@ -69,6 +86,7 @@ declare module '@tanstack/react-router' {
 }
 
 const rootRouteChildren: RootRouteChildren = {
+  IndexRoute: IndexRoute,
   PostsIdRoute: PostsIdRoute,
   PostsIndexRoute: PostsIndexRoute,
 }
