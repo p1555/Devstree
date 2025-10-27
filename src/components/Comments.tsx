@@ -31,7 +31,7 @@ export function Comments({ comments, postID }: CommentsProps) {
               <b>Body:</b> {comment.body}
             </p>
           </li>
-        )
+        )      
       })}
     </div>
   )

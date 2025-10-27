@@ -10,8 +10,13 @@ export const Route = createFileRoute('/posts/')({
 
 function PostsPage() {
   const [pageNumber, setPageNumber] = useState(0)
+  //  const [lastpage, setlastpage] = useState(false)
 
-  const { data, isLoading, isError } = useQuery({
+  const {
+    data = [], 
+    isLoading,
+    isError,
+  } = useQuery({
     queryKey: ['posts', pageNumber],
     queryFn: () => fetchPosts(pageNumber),
     placeholderData: keepPreviousData,
@@ -20,12 +25,14 @@ function PostsPage() {
   if (isLoading) return <p>Loading posts...</p>
   if (isError) return <p>Error loading posts.</p>
 
+  const lastpage = data.length < 3
+
   return (
     <div>
       <h1 className="text-center mb-3 font-bold text-3xl">Posts</h1>
 
       <ul className="space-y-3">
-        {data?.map((post: post) => (
+        {data.map((post: post) => (
           <li
             key={post.id}
             className="border p-4 rounded-xl mb-2 hover:bg-gray-50"
@@ -40,7 +47,7 @@ function PostsPage() {
 
       <div className="flex gap-4 justify-center mt-6">
         <button
-          disabled={pageNumber === 0}
+          disabled={pageNumber === 0 ? true : false}
           onClick={() => setPageNumber((prev) => prev - 3)}
           className="px-4 py-2 bg-gray-400 rounded cursor-pointer"
         >
@@ -50,7 +57,12 @@ function PostsPage() {
         <p className="pt-2">Page {pageNumber / 3 + 1}</p>
 
         <button
-          onClick={() => setPageNumber((prev) => prev + 3)}
+          disabled={lastpage}
+          onClick={() => {
+            if (!lastpage) {
+              setPageNumber((prev) => prev + 3)
+            }
+          }}
           className="px-4 py-2 bg-gray-400 rounded cursor-pointer"
         >
           Next
