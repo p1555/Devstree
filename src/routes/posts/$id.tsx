@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import { createFileRoute } from '@tanstack/react-router'
 import { fetchComments, fetchPost } from '../../Api/api'
 
-import RefreshError from '../(error)/refresherror'
+// import RefreshError from '../(error)/refresherror'
 import IdError from '@/errors/iderror'
 import {
   Card,
@@ -39,7 +39,7 @@ function PostDetails() {
   })
 
     if (postLoading || commentsLoading) {
-    return <RefreshError message="Loading post data..." />
+    return null
   }
 
   if (postError || commentsError) {

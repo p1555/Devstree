@@ -1,4 +1,6 @@
 'use client'
+import avtar from '../images/avtar.jpg';
+
 import type { Comment } from '@/types/global'
 
 import {
@@ -10,6 +12,7 @@ import {
 } from '@/components/ui/carousel'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+
 
 interface CommentsCarouselProps {
   comments: Array<Comment>
@@ -29,7 +32,8 @@ export function CommentsCarousel({ comments }: CommentsCarouselProps) {
                 <CardHeader className="flex items-center space-x-4 pb-2">
                   <Avatar>
                     <AvatarImage
-                      src={`https://api.dicebear.com/8.x/initials/svg?seed=${comment.name}`}
+                      src={avtar}
+                       alt={`${comment.name}'s avatar`}
                     />
                     <AvatarFallback>
                       {comment.name.charAt(0).toUpperCase()}
