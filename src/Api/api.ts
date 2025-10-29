@@ -1,17 +1,6 @@
 import axios from 'axios'
 
-export type post = {
-  id: number
-  title: string
-  body: string
-}
-
-export type Comment = {
-  id: number
-  name: string
-  email: string
-  body: string
-}
+import type { Comment, post } from '@/types/global'
 
 const BASE_URL = 'https://jsonplaceholder.typicode.com'
 

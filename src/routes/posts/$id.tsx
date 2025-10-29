@@ -1,7 +1,17 @@
 import { useQuery } from '@tanstack/react-query'
 import { createFileRoute } from '@tanstack/react-router'
-import { fetchComments, fetchPost } from '../../Api/api.tsx'
-import { Comments } from '@/components/Comments.tsx'
+import { fetchComments, fetchPost } from '../../Api/api'
+
+import RefreshError from '../error/refresherror'
+import IdError from '@/errors/iderror'
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+import { Separator } from '@/components/ui/separator'
+import { Comments } from '@/components/Comments'
 
 export const Route = createFileRoute('/posts/$id')({
   component: PostDetails,
@@ -28,19 +38,43 @@ function PostDetails() {
     queryFn: () => fetchComments(postid),
   })
 
-  if (postLoading || commentsLoading) return <p>Loading...</p>
-  if (postError || commentsError) return <p>Error loading post.</p>
+    if (postLoading || commentsLoading) {
+    return <RefreshError message="Loading post data..." />
+  }
+
+  if (postError || commentsError) {
+  
+    return (
+      <IdError
+        postLoading={postLoading}
+        commentsLoading={commentsLoading}
+        postError={postError}
+        commentsError={commentsError}
+      />
+    )
+  }
   if (!post) {
     return <p>No post found..</p>
   }
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-2">{post.title}</h1>
-      <p className="mb-6 text-gray-700">{post.body}</p>
+      <div className="max-w-2xl mx-auto mt-12 px-4">
+        <Card className="shadow-md p-6">
+          <CardHeader>
+            <CardTitle className="text-2xl font-bold text-gray-900">
+              {post.title}
+            </CardTitle>
+            <CardDescription className="text-gray-700 mt-2">
+              {post.body}
+            </CardDescription>
+          </CardHeader>
+        </Card>
 
-      <h2 className="text-xl font-semibold mb-2">Comments</h2>
-      <Comments comments={comments} postID={postid} />
+        <Separator className="my-6" />
+
+        <Comments comments={comments} postID={postid} />
+      </div>
     </div>
   )
 }

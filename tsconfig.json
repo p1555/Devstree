@@ -5,7 +5,7 @@
     "eslint.config.js",
     "prettier.config.js",
     "vite.config.js"
-  ],
+, "src/Api/api.ts"  ],
 
   "compilerOptions": {
     "target": "ES2022",
