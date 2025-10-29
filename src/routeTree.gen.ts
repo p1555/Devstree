@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PostsIndexRouteImport } from './routes/posts/index'
 import { Route as PostsIdRouteImport } from './routes/posts/$id'
+import { Route as error404RouteImport } from './routes/(error)/404'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -28,33 +29,42 @@ const PostsIdRoute = PostsIdRouteImport.update({
   path: '/posts/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const error404Route = error404RouteImport.update({
+  id: '/(error)/404',
+  path: '/404',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/404': typeof error404Route
   '/posts/$id': typeof PostsIdRoute
   '/posts': typeof PostsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/404': typeof error404Route
   '/posts/$id': typeof PostsIdRoute
   '/posts': typeof PostsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/(error)/404': typeof error404Route
   '/posts/$id': typeof PostsIdRoute
   '/posts/': typeof PostsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/posts/$id' | '/posts'
+  fullPaths: '/' | '/404' | '/posts/$id' | '/posts'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/posts/$id' | '/posts'
-  id: '__root__' | '/' | '/posts/$id' | '/posts/'
+  to: '/' | '/404' | '/posts/$id' | '/posts'
+  id: '__root__' | '/' | '/(error)/404' | '/posts/$id' | '/posts/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  error404Route: typeof error404Route
   PostsIdRoute: typeof PostsIdRoute
   PostsIndexRoute: typeof PostsIndexRoute
 }
@@ -82,11 +92,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PostsIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/(error)/404': {
+      id: '/(error)/404'
+      path: '/404'
+      fullPath: '/404'
+      preLoaderRoute: typeof error404RouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  error404Route: error404Route,
   PostsIdRoute: PostsIdRoute,
   PostsIndexRoute: PostsIndexRoute,
 }
